@@ -1,0 +1,23 @@
+docker:
+  build: .
+  command: python 
+  dockerfile: Dockerfile
+  working_dir: /home/docker
+  volumes:
+    - .:/home/docker
+  devices:
+    - /dev/nvidia0:/dev/nvidia0
+    - /dev/nvidiactl:/dev/nvidiactl
+    - /dev/nvidia-uvm:/dev/nvidia-uvm
+  environment:
+    - IS_GPU=1
+
+docker-cpu:
+  build: .
+  command: python 
+  dockerfile: cpu.Dockerfile
+  working_dir: /home/docker
+  volumes:
+    - .:/home/docker
+  environment:
+    - IS_GPU=0
