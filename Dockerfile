@@ -1,3 +1,3 @@
-FROM quay.io/ruimashita/caffe-gpu-with-models:rc3
+FROM ruimashita/chainer-gpu
 
-RUN pip install scikit-learn
+RUN pip install Pillow
